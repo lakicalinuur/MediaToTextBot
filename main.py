@@ -206,7 +206,7 @@ def mode_cb(call):
     try:
         bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
     except: pass
-    bot.answer_callback_query(call.id, f"Mode set to: {mode}✅")
+    bot.answer_callback_query(call.id, f"Mode set to: {mode}")
     bot.send_message(call.message.chat.id, f"Output mode: **{mode}**", parse_mode="Markdown")
 
 @bot.callback_query_handler(func=lambda c: c.data.startswith('lang|'))
