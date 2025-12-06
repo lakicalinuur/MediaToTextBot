@@ -172,8 +172,8 @@ def ensure_joined(message):
         if bot.get_chat_member(REQUIRED_CHANNEL, message.from_user.id).status in ['member', 'administrator', 'creator']: return True
     except: pass
     clean = REQUIRED_CHANNEL.replace("@", "")
-    kb = InlineKeyboardMarkup([[InlineKeyboardButton("Click here join 💋", url=f"https://t.me/{clean}")]])
-    bot.reply_to(message, "Join my channel, it's mandatory 🤡", reply_markup=kb)
+    kb = InlineKeyboardMarkup([[InlineKeyboardButton("Click here Subscribe 💋", url=f"https://t.me/{clean}")]])
+    bot.reply_to(message, "First subscribe to my channel and come back 👍", reply_markup=kb)
     return False
 
 @bot.message_handler(commands=['start', 'help'])
