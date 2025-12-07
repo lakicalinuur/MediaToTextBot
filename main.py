@@ -244,7 +244,7 @@ def ensure_joined(message):
     except:
         pass
     clean = REQUIRED_CHANNEL.replace("@", "")
-    kb = InlineKeyboardMarkup([[InlineKeyboardButton("Click here Join", url=f"https://t.me/{clean}")]])
+    kb = InlineKeyboardMarkup([[InlineKeyboardButton("👉🏻 Join", url=f"https://t.me/{clean}")]])
     bot.reply_to(message, "First Join my channel and come back 👍", reply_markup=kb)
     return False
 
