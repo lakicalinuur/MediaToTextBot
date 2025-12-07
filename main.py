@@ -1,6 +1,3 @@
-sidoo kale gemini haloo diro video yada
-
-Don’t add code python #comments Sand mee full main .py 
 
 import os
 import threading
