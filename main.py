@@ -309,7 +309,7 @@ def process_text_action(call, origin_msg_id, log_action, prompt_instr):
     except Exception as e:
         msg = str(e)
         if msg == "API_KEY_MISSING":
-            bot.send_message(chat_id, "Please send your Gemini API key first.")
+            bot.send_message(chat_id, "Please send your Gemini API key first You will find key at https://aistudio.google.com")
         elif msg.startswith("API_DAILY_LIMIT_REACHED"):
             parts = msg.split("|")
             secs = int(parts[1]) if len(parts) > 1 else seconds_left_for_user(call.from_user.id)
@@ -339,7 +339,7 @@ def handle_media(message):
         except Exception as e:
             em = str(e)
             if em == "API_KEY_MISSING":
-                bot.reply_to(message, "Please send your Gemini API key first.")
+                bot.reply_to(message, "Please send your Gemini API key first You will find key at https://aistudio.google.com")
                 return
             if em.startswith("API_DAILY_LIMIT_REACHED"):
                 parts = em.split("|")
