@@ -392,7 +392,7 @@ async def send_welcome(client, message):
         "• voice message\n"
         "• audio file\n"
         "• video\n"
-        "• to transcribe for free"
+        "• to transcribe for 🥶free"
     )
     await message.reply_text(welcome_text)
     user_awaiting_key[message.from_user.id] = True
