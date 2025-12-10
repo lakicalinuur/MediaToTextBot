@@ -172,7 +172,7 @@ def send_welcome(message):
             "• audio file\n"
             "• video\n"
             "• to transcribe for free\n\n"
-            "Choose your File language 🥳"
+            "Select the language spoken in your audio or video:🥳"
         )
         kb = build_lang_keyboard("file")
         bot.reply_to(message, welcome_text, reply_markup=kb, parse_mode="Markdown")
@@ -202,7 +202,7 @@ def mode_cb(call):
 def lang_command(message):
     if ensure_joined(message):
         kb = build_lang_keyboard("file")
-        bot.reply_to(message, "okay Choose your File language:", reply_markup=kb)
+        bot.reply_to(message, "okay Select the language spoken in your audio or video:", reply_markup=kb)
 
 @bot.callback_query_handler(func=lambda c: c.data.startswith('lang|'))
 def lang_cb(call):
@@ -263,7 +263,7 @@ def handle_media(message):
         if not lang:
             pending_files[message.chat.id] = {"path": file_path, "message": message}
             kb = build_lang_keyboard("file")
-            bot.reply_to(message, "Choose transcription language for this file:", reply_markup=kb)
+            bot.reply_to(message, "okey Select the language spoken in your audio or video:", reply_markup=kb)
             return
         text = upload_and_transcribe_assemblyai(file_path, language=lang)
         if not text:
@@ -271,7 +271,7 @@ def handle_media(message):
         sent = send_long_text(message.chat.id, text, message.id, message.from_user.id)
         if sent:
             user_transcriptions.setdefault(message.chat.id, {})[sent.message_id] = {"text": text, "origin": message.id}
-            bot.send_message(message.chat.id, "Transcript sent")
+            bot.send_message(message.chat.id, "completed!")
             send_promo(message.chat.id)
     except Exception as e:
         bot.reply_to(message, f"❌ Error: {e}")
