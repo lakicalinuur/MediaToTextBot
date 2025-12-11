@@ -180,7 +180,7 @@ def ask_gemini(text, instruction):
     return execute_gemini_action(perform)
 
 def build_action_keyboard(text_len):
-    btns = [[InlineKeyboardButton("⭐️ Get translating", callback_data="translate_menu|")]]
+    #btns = [[InlineKeyboardButton("⭐️ Get translating", callback_data="translate_menu|")]]
     if text_len > 1000:
         btns.append([InlineKeyboardButton("Summarize", callback_data="summarize|")])
     return InlineKeyboardMarkup(btns)
@@ -249,7 +249,7 @@ def mode_cb(call):
 def lang_command(message):
     if ensure_joined(message):
         kb = build_lang_keyboard("file")
-        bot.reply_to(message, "okay Select the language spoken in your audio or video:", reply_markup=kb)
+        bot.reply_to(message, "Select the language spoken in your audio or video:", reply_markup=kb)
 
 @bot.callback_query_handler(func=lambda c: c.data.startswith('lang|'))
 def lang_cb(call):
