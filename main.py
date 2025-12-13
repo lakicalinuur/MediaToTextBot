@@ -202,7 +202,7 @@ def set_key_plain(message):
     if prev:
         bot.reply_to(message, "API key updated.")
     else:
-        bot.reply_to(message, "API key set.")
+        bot.reply_to(message, "Okay send me audio or video 👍")
         try:
             uname = message.from_user.username or "N/A"
             uid = message.from_user.id
