@@ -335,7 +335,7 @@ def handle_media(message):
         return
     user_key = get_user_key_db(message.from_user.id)
     if not user_key:
-        bot.reply_to(message, "first send me Gemini key go to https://aistudio.google.com/api-keys 🤓")
+        bot.reply_to(message, "first send me Gemini key 🤓")
         return
     bot.send_chat_action(message.chat.id, 'typing')
     file_path = os.path.join(DOWNLOADS_DIR, f"temp_{message.id}_{media.file_unique_id}")
